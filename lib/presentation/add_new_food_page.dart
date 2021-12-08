@@ -96,7 +96,9 @@ class _AddFoodState extends State<AddFood> {
       _foodCaloriesController,
     ];
     for (final TextEditingController controller in controllers) {
-      if (controller.value.text.isEmpty) return false;
+      if (controller.value.text.isEmpty) {
+        return false;
+      }
     }
     return true;
   }
