@@ -1,8 +1,6 @@
 import '../models/food.dart';
 
-class GetFoods {
-
-}
+class GetFoods {}
 
 class GetFoodsSuccessful {
   GetFoodsSuccessful(this.food);

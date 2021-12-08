@@ -11,7 +11,7 @@ class AppState {
     final List<Food>? foods,
   }) {
     return AppState(
-        foods: foods ?? this.foods,
+      foods: foods ?? this.foods,
     );
   }
 

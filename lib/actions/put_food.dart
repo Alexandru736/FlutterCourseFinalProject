@@ -1,7 +1,10 @@
 import '../models/food.dart';
 
 class PutFood {
-  const PutFood({required this.result, required this.food});
+  const PutFood({
+    required this.result,
+    required this.food,
+  });
 
   final Food food;
   final void Function(dynamic action) result;

@@ -63,7 +63,8 @@ class FoodsApi {
     };
 
     final String jsonFood = jsonEncode(foodMap);
-    final Response response = await put(uri, body: jsonFood, headers: <String, String>{'content-type': 'application/json'});
+    final Response response =
+        await put(uri, body: jsonFood, headers: <String, String>{'content-type': 'application/json'});
 
     return response.body;
   }
@@ -72,7 +73,7 @@ class FoodsApi {
 /*void main() async {
   final FoodsApi api = FoodsApi();
   print(await api.getFoods());
-  *//*await api.putFood(
+  */ /*await api.putFood(
     Food(
       name: 'Cheese',
       id: 15,
@@ -84,5 +85,5 @@ class FoodsApi {
         calories: NutritionalValue(name: 'calories', value: 18),
       ),
     ),
-  );*//*
+  );*/ /*
 }*/

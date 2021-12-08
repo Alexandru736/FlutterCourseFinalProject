@@ -46,7 +46,6 @@ class _MenuGeneratorState extends State<MenuGenerator> {
   }
 
   void calculateMenu(List<Food> food) {
-
     menu = <Food>[];
 
     final double neededAmountOfCalories = double.parse(_foodCaloriesController.value.text);
@@ -89,8 +88,8 @@ class _MenuGeneratorState extends State<MenuGenerator> {
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-            title: const Text('Here is you menu'),
-        children: menu.map((Food food) => SimpleDialogOption(child: Text(food.name))).toList(),
+          title: const Text('Here is you menu'),
+          children: menu.map((Food food) => SimpleDialogOption(child: Text(food.name))).toList(),
         );
       },
     );

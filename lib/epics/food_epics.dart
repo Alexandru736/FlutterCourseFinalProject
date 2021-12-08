@@ -14,15 +14,12 @@ class FoodEpics {
 
   Epic<AppState> get epics {
     // ignore: always_specify_types
-    return combineEpics([
-      TypedEpic<AppState, GetFoods>(getFoods),
-      TypedEpic<AppState, PutFood>(putFoods)
-    ]);
+    return combineEpics([TypedEpic<AppState, GetFoods>(getFoods), TypedEpic<AppState, PutFood>(putFoods)]);
   }
 
   Stream<dynamic> getFoods(Stream<GetFoods> actions, EpicStore<AppState> store) {
     return actions
-      .whereType<GetFoods>()
+        .whereType<GetFoods>()
         .flatMap((GetFoods action) => Stream<void>.value(null))
         .asyncMap((_) => api.getFoods())
         .map<Object>((List<Food> foods) => GetFoodsSuccessful(foods))
@@ -30,9 +27,7 @@ class FoodEpics {
   }
 
   Stream<dynamic> putFoods(Stream<PutFood> actions, EpicStore<AppState> store) {
-    return actions
-      .whereType<PutFood>()
-      .flatMap((PutFood action) => Stream<void>.value(null)
+    return actions.whereType<PutFood>().flatMap((PutFood action) => Stream<void>.value(null)
         .asyncMap((_) => api.putFood(action.food))
         .map<Object>((String respond) => PutFoodSuccessful(respond))
         .onErrorReturnWith((Object error, StackTrace stackTrace) => PutFoodError(error))

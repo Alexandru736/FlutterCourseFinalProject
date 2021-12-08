@@ -23,7 +23,10 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    final Store<AppState> store = StoreProvider.of<AppState>(context, listen: false);
+    final Store<AppState> store = StoreProvider.of<AppState>(
+      context,
+      listen: false,
+    );
     store.dispatch(GetFoods());
   }
 
@@ -76,32 +79,34 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: FoodsContainer(builder: (BuildContext context, List<Food> foods) {
-        return ListView.builder(
-          itemCount: foods.length,
-          itemBuilder: (BuildContext context, int index) {
-            final Food food = foods[index];
-            final String foodName = foods[index].name;
-            return InkWell(
-              onTap: () {
-                _onTap(food);
-              },
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.1,
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      foodName,
-                      style: const TextStyle(fontSize: 20),
+      body: FoodsContainer(
+        builder: (BuildContext context, List<Food> foods) {
+          return ListView.builder(
+            itemCount: foods.length,
+            itemBuilder: (BuildContext context, int index) {
+              final Food food = foods[index];
+              final String foodName = foods[index].name;
+              return InkWell(
+                onTap: () {
+                  _onTap(food);
+                },
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  child: Card(
+                    child: ListTile(
+                      title: Text(
+                        foodName,
+                        style: const TextStyle(fontSize: 20),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          },
-        );
-      }),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

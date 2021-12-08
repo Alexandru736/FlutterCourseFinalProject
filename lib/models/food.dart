@@ -43,7 +43,10 @@ class Nutrition {
 }
 
 class NutritionalValue {
-  NutritionalValue({required this.name, required this.value});
+  NutritionalValue({
+    required this.name,
+    required this.value,
+  });
 
   final String name;
   final dynamic value;

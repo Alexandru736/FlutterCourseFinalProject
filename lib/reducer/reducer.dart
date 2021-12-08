@@ -1,4 +1,3 @@
-
 import 'package:redux/redux.dart';
 
 import '../actions/get_food.dart';
@@ -19,9 +18,7 @@ AppState _getFoods(AppState state, GetFoods action) {
   return state;
 }
 
-
 AppState _getFoodsSuccessful(AppState state, GetFoodsSuccessful action) {
-
   final List<Food> foods = <Food>[];
 
   foods.addAll(state.foods);
@@ -37,7 +34,6 @@ AppState _getFoodsError(AppState state, GetFoodsError action) {
 AppState _putFoods(AppState state, PutFood action) {
   return state;
 }
-
 
 AppState _putFoodsSuccessful(AppState state, PutFoodSuccessful action) {
   return state;

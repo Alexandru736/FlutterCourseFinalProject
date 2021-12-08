@@ -6,8 +6,6 @@ class FoodPage extends StatefulWidget {
 
   final Food food;
 
-  //const List<NutritionalValue> nutritionalValues; = <NutritionalValue>[food.nutrition.carbs];
-
   @override
   _FoodPageState createState() => _FoodPageState();
 }

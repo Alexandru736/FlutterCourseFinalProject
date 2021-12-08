@@ -11,22 +11,16 @@ import 'presentation/homepage.dart';
 import 'reducer/reducer.dart';
 
 void main() {
-
   final FoodsApi foodsApi = FoodsApi();
   final FoodEpics epics = FoodEpics(foodsApi);
 
-  final Store<AppState> store = Store<AppState>(
-    reducer,
-    initialState: AppState(),
-    middleware: <Middleware<AppState>>[
-      (Store<AppState> store, dynamic action, NextDispatcher next) {
-        next(action);
-      },
-      EpicMiddleware<AppState>(epics.epics),
-    ]
-  );
+  final Store<AppState> store = Store<AppState>(reducer, initialState: AppState(), middleware: <Middleware<AppState>>[
+    (Store<AppState> store, dynamic action, NextDispatcher next) {
+      next(action);
+    },
+    EpicMiddleware<AppState>(epics.epics),
+  ]);
   runApp(FinalApp(store: store));
-
 }
 
 class FinalApp extends StatelessWidget {

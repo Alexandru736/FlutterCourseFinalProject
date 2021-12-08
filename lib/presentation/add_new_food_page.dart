@@ -66,7 +66,7 @@ class _AddFoodState extends State<AddFood> {
                 );
               },
             );
-          } else if(action is PutFoodSuccessful) {
+          } else if (action is PutFoodSuccessful) {
             showDialog<void>(
               context: context,
               builder: (BuildContext context) {
@@ -96,16 +96,13 @@ class _AddFoodState extends State<AddFood> {
       _foodCaloriesController,
     ];
     for (final TextEditingController controller in controllers) {
-      if (controller.value.text.isEmpty)
-        return false;
+      if (controller.value.text.isEmpty) return false;
     }
     return true;
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add new Food'),
